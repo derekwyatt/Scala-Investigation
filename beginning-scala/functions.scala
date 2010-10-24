@@ -35,3 +35,9 @@ def typeFunction[T, U](i: T, f: T => U) = {
 def toBeCalled(i: Int) = "toBeCalled returning " + i
 
 typeFunction(200, toBeCalled)
+
+def t[T](f: Int => T): T = f(10)
+
+val intList: Int => List[Int] = i => (1 to i).toList
+
+println(t(intList).mkString("List(", ", ", ")"))
