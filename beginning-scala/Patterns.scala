@@ -17,3 +17,13 @@ def noPairs[T](in: List[T]): List[T] = in match {
 val m = ((1 to 10).toList ::: (1 to 10).toList).sorted
 println(m)
 println(noPairs(m))
+
+def ignore(in: List[String]): List[String] = in match {
+    case Nil => Nil
+    case _ :: "ignore" :: rest => ignore(rest)
+    case x :: rest => x :: ignore(rest)
+}
+
+val n = List("a", "b", "ignore", "c", "d", "e", "ignore", "f", "g")
+println(n)
+println(ignore(n))
